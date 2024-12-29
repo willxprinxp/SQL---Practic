@@ -177,13 +177,13 @@ SELECT
 FROM
 	DimEmployee
 WHERE 
-	Gender = 'M' AND 
+	Gender = 'F' AND 
 	DepartmentName IN 
 	('Production',
 	'Marketing',
 	'Engineering',
 	'Finance') AND
 	StartDate BETWEEN 
-	'1999-01-01' AND'2000-12-31' 
+	'1999-01-01' AND '2000-12-31' 
 GROUP BY Title
 ORDER BY SUM(VacationHours) DESC
