@@ -147,3 +147,14 @@ FROM
 WHERE Gender IS NOT NULL AND YearlyIncome IS NOT NULL
 GROUP BY
 	Gender
+
+--8
+SELECT
+	Education AS 'Nível Escolar',
+	SUM(CustomerKey) AS 'Qtde Clientes',
+	AVG(YearlyIncome) AS 'Média Salarial'
+FROM
+	DimCustomer
+WHERE Education IS NOT NULL
+GROUP BY Education
+ORDER BY AVG(YearlyIncome) DESC
