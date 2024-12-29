@@ -1,0 +1,6 @@
+-- COUNT DISTINCT
+
+SELECT
+	COUNT(DISTINCT ColorName)
+FROM
+	DimProduct
