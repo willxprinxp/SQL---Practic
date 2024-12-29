@@ -169,3 +169,21 @@ FROM
 	DimEmployee
 WHERE EndDate IS NULL
 GROUP BY DepartmentName
+
+--10
+SELECT
+	Title AS Cargo,
+	SUM(VacationHours) AS 'Horas Férias'
+FROM
+	DimEmployee
+WHERE 
+	Gender = 'M' AND 
+	DepartmentName IN 
+	('Production',
+	'Marketing',
+	'Engineering',
+	'Finance') AND
+	StartDate BETWEEN 
+	'1999-01-01' AND'2000-12-31' 
+GROUP BY Title
+ORDER BY SUM(VacationHours) DESC
