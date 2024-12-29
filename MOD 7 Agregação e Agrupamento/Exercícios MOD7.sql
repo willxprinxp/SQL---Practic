@@ -157,4 +157,15 @@ FROM
 	DimCustomer
 WHERE Education IS NOT NULL
 GROUP BY Education
-ORDER BY AVG(YearlyIncome) DESC
+ORDER BY AVG(YearlyIncome) DESC	
+
+--9
+SELECT * FROM DimEmployee
+
+SELECT
+	DepartmentName AS Departamento,
+	COUNT(EmployeeKey) AS 'Qtde de Funcionários'
+FROM
+	DimEmployee
+WHERE EndDate IS NULL
+GROUP BY DepartmentName
