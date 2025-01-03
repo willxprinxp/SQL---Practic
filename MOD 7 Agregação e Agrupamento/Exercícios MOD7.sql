@@ -79,6 +79,13 @@ GROUP BY
 	ProductKey
 ORDER BY SUM(SalesQuantity) DESC
 
+-- Bonus! Quais são esses produtos?
+SELECT
+	ProductName AS 'Nome do Produto'
+FROM	
+	DimProduct
+WHERE
+	ProductKey IN ('2515', '2516', '2506')
 
 --4
 SELECT* FROM  DimProduct
