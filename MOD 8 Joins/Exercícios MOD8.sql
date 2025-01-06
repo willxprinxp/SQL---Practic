@@ -13,3 +13,21 @@ FROM
 	DimProduct
 INNER JOIN DimProductSubcategory
 	ON DimProduct.ProductSubcategoryKey = DimProductSubcategory.ProductSubcategoryKey
+
+
+--2
+SELECT * FROM DimProductCategory
+SELECT * FROM DimProductSubcategory
+
+SELECT
+	DimProductCategory.ProductCategoryKey,
+	ProductCategoryName,
+	ProductCategoryDescription, --Inúlteiskkk
+ 	ProductSubcategoryKey,
+	ProductSubcategoryName,
+	ProductSubcategoryDescription --Inúlteiskkk
+FROM
+	DimProductSubcategory
+INNER JOIN DimProductCategory
+	ON DimProductSubcategory.ProductCategoryKey = DimProductCategory.ProductCategoryKey
+	
