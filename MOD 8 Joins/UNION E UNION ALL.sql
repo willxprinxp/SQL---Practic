@@ -1,9 +1,9 @@
 -- UNION E UNION ALL
 
--- Imagine que temos duas tabelas uma apenas com o gênero feminino e outra apenas como gênero masculino
--- Quando adicionamos UNION ou UNION ALL no meio delas conseguimos a união dos dados dessas tabelas. 
+-- Imagine que temos duas tabelas, uma apenas com o gÃªnero feminino e outra apenas como gÃªnero masculino.
+-- Quando adicionamos UNION ou UNION ALL no meio delas conseguimos a uniÃ£o dos dados dessas tabelas. 
 
--- 1ª
+-- 1Âª
 SELECT
 	*
 FROM
@@ -19,7 +19,7 @@ FROM
 WHERE Gender = 'M'
 
 
---2ª
+--2Âª
 SELECT
 	FirstName,
 	BirthDate
@@ -27,7 +27,7 @@ FROM
 	DimCustomer
 WHERE Gender = 'F'
 
-UNION ALL -- NÃO REMOVE DADOS DUPLICADOS
+UNION ALL -- NÃƒO REMOVE DADOS DUPLICADOS
 
 SELECT
 	FirstName,
