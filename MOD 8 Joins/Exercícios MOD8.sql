@@ -28,6 +28,6 @@ SELECT
 	ProductSubcategoryDescription --Inúlteiskkk
 FROM
 	DimProductSubcategory
-INNER JOIN DimProductCategory
+LEFT JOIN DimProductCategory
 	ON DimProductSubcategory.ProductCategoryKey = DimProductCategory.ProductCategoryKey
 	
