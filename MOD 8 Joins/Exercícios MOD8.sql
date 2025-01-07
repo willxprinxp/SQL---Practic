@@ -96,3 +96,17 @@ FROM
 	FactStrategyPlan
 INNER JOIN DimScenario
 	ON FactStrategyPlan.ScenarioKey = DimScenario.ScenarioKey
+
+
+--7
+SELECT TOP(100)* FROM DimProduct
+SELECT * FROM DimProductSubcategory
+
+SELECT
+	ProductName,
+	ProductSubcategoryName
+FROM
+	DimProductSubcategory
+LEFT JOIN DimProduct
+	ON DimProduct.ProductSubcategoryKey = DimProductSubcategory.ProductCategoryKey
+WHERE ProductName IS NULL
