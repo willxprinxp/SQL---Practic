@@ -81,3 +81,18 @@ FROM
 	FactStrategyPlan
 INNER JOIN DimAccount
 	ON FactStrategyPlan.AccountKey = DimAccount.AccountKey
+
+
+--6
+SELECT TOP(100)* FROM FactStrategyPlan 
+SELECT * FROM DimScenario
+
+SELECT
+	StrategyPlanKey,
+	DateKey,
+	ScenarioName,
+	Amount
+FROM
+	FactStrategyPlan
+INNER JOIN DimScenario
+	ON FactStrategyPlan.ScenarioKey = DimScenario.ScenarioKey
