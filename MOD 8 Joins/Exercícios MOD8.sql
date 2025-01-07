@@ -31,3 +31,18 @@ FROM
 LEFT JOIN DimProductCategory
 	ON DimProductSubcategory.ProductCategoryKey = DimProductCategory.ProductCategoryKey
 	
+
+--3
+SELECT * FROM DimStore
+SELECT * FROM DimGeography
+
+SELECT
+	StoreKey,
+	StoreName,
+	EmployeeCount,
+	ContinentName,
+	RegionCountryName
+FROM
+	DimStore
+LEFT JOIN DimGeography
+	ON DimStore.GeographyKey = DimGeography.GeographyKey
