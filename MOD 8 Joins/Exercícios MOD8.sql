@@ -66,3 +66,18 @@ LEFT JOIN DimProductSubcategory
 	ON DimProduct.ProductSubcategoryKey = DimProductSubcategory.ProductSubcategoryKey
 	LEFT JOIN DimProductCategory
 		ON DimProductCategory.ProductCategoryKey = DimProductSubcategory.ProductCategoryKey
+
+
+--5
+SELECT TOP(100)* FROM FactStrategyPlan --A
+SELECT TOP(100)* FROM DimAccount
+
+SELECT
+	StrategyPlanKey,
+	DateKey,
+	AccountName,
+	Amount
+FROM
+	FactStrategyPlan
+INNER JOIN DimAccount
+	ON FactStrategyPlan.AccountKey = DimAccount.AccountKey
