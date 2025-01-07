@@ -52,13 +52,17 @@ LEFT JOIN DimGeography
 SELECT * FROM DimProduct
 SELECT * FROM DimProductCategory
 
+SELECT * FROM DimProductSubcategory
+
 SELECT
 	ProductKey,
 	ProductName,
 	ProductDescription,
-	ProductCategoryDescription,
-	BrandName
+	ProductSubcategoryName,
+	ProductCategoryDescription
 FROM
 	DimProduct
-LEFT JOIN DimProductCategory
-	ON DimProduct.ETLLoadID = DimProductCategory.ETLLoadID
+LEFT JOIN DimProductSubcategory
+	ON DimProduct.ProductSubcategoryKey = DimProductSubcategory.ProductSubcategoryKey
+	LEFT JOIN DimProductCategory
+		ON DimProductCategory.ProductCategoryKey = DimProductSubcategory.ProductCategoryKey
