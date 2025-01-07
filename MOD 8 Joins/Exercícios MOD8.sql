@@ -46,3 +46,19 @@ FROM
 	DimStore
 LEFT JOIN DimGeography
 	ON DimStore.GeographyKey = DimGeography.GeographyKey
+
+
+--4
+SELECT * FROM DimProduct
+SELECT * FROM DimProductCategory
+
+SELECT
+	ProductKey,
+	ProductName,
+	ProductDescription,
+	ProductCategoryDescription,
+	BrandName
+FROM
+	DimProduct
+LEFT JOIN DimProductCategory
+	ON DimProduct.ETLLoadID = DimProductCategory.ETLLoadID
