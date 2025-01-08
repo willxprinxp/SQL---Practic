@@ -122,3 +122,20 @@ SELECT
 FROM
 	DimProduct CROSS JOIN DimChannel
 WHERE BrandName IN('Contoso', 'Fabrikam', 'Litware')
+
+
+--9
+SELECT * FROM DimPromotion
+SELECT TOP(100)* FROM FactOnlineSales
+
+SELECT TOP (1000)
+	OnlineSalesKey,
+	DateKey,
+	PromotionName,
+	SalesAmount
+FROM
+	FactOnlineSales
+INNER JOIN DimPromotion
+	ON FactOnlineSales.PromotionKey = DimPromotion.PromotionKey
+WHERE PromotionName <> 'No Discount'
+ORDER BY DateKey ASC
