@@ -110,3 +110,15 @@ FROM
 LEFT JOIN DimProduct
 	ON DimProduct.ProductSubcategoryKey = DimProductSubcategory.ProductCategoryKey
 WHERE ProductName IS NULL
+
+
+--8
+SELECT * FROM DimChannel
+SELECT * FROM DimProduct
+
+SELECT 
+	DISTINCT BrandName,
+	ChannelName
+FROM
+	DimProduct CROSS JOIN DimChannel
+WHERE BrandName IN('Contoso', 'Fabrikam', 'Litware')
