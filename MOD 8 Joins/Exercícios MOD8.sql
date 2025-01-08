@@ -139,3 +139,26 @@ INNER JOIN DimPromotion
 	ON FactOnlineSales.PromotionKey = DimPromotion.PromotionKey
 WHERE PromotionName <> 'No Discount'
 ORDER BY DateKey ASC
+
+
+--10
+SELECT TOP(1000)* FROM FactSales
+SELECT * FROM DimChannel
+SELECT * FROM DimStore
+SELECT * FROM DimProduct
+
+SELECT TOP(1000)
+	SalesKey,
+	ChannelName,
+	StoreName,
+	ProductName,
+	SalesAmount
+FROM
+	FactSales
+LEFT JOIN DimChannel
+	ON FactSales.channelKey = DimChannel.ChannelKey
+	LEFT JOIN DimStore
+		ON FactSales.StoreKey = DimStore.StoreKey
+		LEFT JOIN DimProduct
+			ON FactSales.ProductKey = DimProduct.ProductKey
+ORDER BY SalesAmount DESC
