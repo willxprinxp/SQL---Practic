@@ -48,3 +48,16 @@ INNER JOIN DimProduct
 	ON FactSales.ProductKey = DimProduct.ProductKey
 GROUP BY ColorName
 ORDER BY SUM(SalesQuantity) DESC
+
+--B
+SELECT
+	ColorName,
+	SUM(SalesAmount)
+FROM
+	DimProduct
+INNER JOIN FactSales
+	ON FactSales.ProductKey = DimProduct.ProductKey
+WHERE SalesAmount >= 300000
+GROUP BY ColorName
+
+SELECT TOP (100)* FROM FactSales
