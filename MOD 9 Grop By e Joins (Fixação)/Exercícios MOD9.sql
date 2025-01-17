@@ -23,3 +23,15 @@ INNER JOIN FactSales
 	ON FactSales.StoreKey = DimStore.StoreKey
 GROUP BY StoreName
 ORDER BY StoreName
+
+--C
+SELECT
+	CalendarYear AS 'Ano',
+	CalendarMonthLabel AS 'Mês',
+	SUM(SalesAmount) AS 'Total Vendido'
+FROM
+	DimDate
+INNER JOIN FactSales
+	ON FactSales.DateKey = DimDate.Datekey
+GROUP BY CalendarYear, CalendarMonthLabel, CalendarMonth
+ORDER BY CalendarMonth ASC
