@@ -35,3 +35,16 @@ INNER JOIN FactSales
 	ON FactSales.DateKey = DimDate.Datekey
 GROUP BY CalendarYear, CalendarMonthLabel, CalendarMonth
 ORDER BY CalendarMonth ASC
+
+
+--2
+--A
+SELECT
+	ColorName AS 'COR',
+	SUM(SalesQuantity) AS 'Qtde Vendida'
+FROM
+	FactSales
+INNER JOIN DimProduct
+	ON FactSales.ProductKey = DimProduct.ProductKey
+GROUP BY ColorName
+ORDER BY SUM(SalesQuantity) DESC
