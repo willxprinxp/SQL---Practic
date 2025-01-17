@@ -51,13 +51,12 @@ ORDER BY SUM(SalesQuantity) DESC
 
 --B
 SELECT
-	ColorName,
-	SUM(SalesAmount)
+	ColorName AS 'COR',
+	SUM(SalesQuantity) AS 'Qtde Vendida'
 FROM
-	DimProduct
-INNER JOIN FactSales
+	FactSales
+INNER JOIN DimProduct
 	ON FactSales.ProductKey = DimProduct.ProductKey
-WHERE SalesAmount >= 300000
 GROUP BY ColorName
-
-SELECT TOP (100)* FROM FactSales
+HAVING SUM(SalesQuantity) >= 3000000 --Filtrando a tabela que já foi agrupada.
+ORDER BY SUM(SalesQuantity) DESC
