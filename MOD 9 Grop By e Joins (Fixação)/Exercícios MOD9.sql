@@ -12,3 +12,14 @@ INNER JOIN DimChannel
 GROUP BY ChannelName
 ORDER BY SUM(SalesQuantity) DESC
 
+--B
+SELECT
+	StoreName AS 'Nome da Loja',
+	SUM(SalesQuantity) AS 'Qtde Vendida',
+	SUM(ReturnQuantity) AS 'Qtde Devolvida'
+FROM
+	DimStore
+INNER JOIN FactSales
+	ON FactSales.StoreKey = DimStore.StoreKey
+GROUP BY StoreName
+ORDER BY StoreName
