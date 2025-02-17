@@ -60,3 +60,19 @@ INNER JOIN DimProduct
 GROUP BY ColorName
 HAVING SUM(SalesQuantity) >= 3000000 --Filtrando a tabela que já foi agrupada.
 ORDER BY SUM(SalesQuantity) DESC
+
+
+--3
+SELECT
+	ProductCategoryName AS 'Categoria',
+	SUM(SalesQuantity) AS 'Qtde Vendida'
+FROM
+	FactSales
+INNER JOIN DimProduct
+	ON FactSales.ProductKey = DimProduct.ProductKey
+	INNER JOIN DimProductSubcategory
+		ON DimProduct.ProductSubcategoryKey = DimProductSubcategory.ProductSubcategoryKey
+		INNER JOIN DimProductCategory
+			ON DimProductSubcategory.ProductCategoryKey = DimProductCategory.ProductCategoryKey
+
+GROUP BY ProductCategoryName
