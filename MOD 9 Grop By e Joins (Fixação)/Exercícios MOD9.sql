@@ -76,3 +76,19 @@ INNER JOIN DimProduct
 			ON DimProductSubcategory.ProductCategoryKey = DimProductCategory.ProductCategoryKey
 
 GROUP BY ProductCategoryName
+
+
+--4
+--A
+SELECT
+	DimCustomer.CustomerKey,
+	FirstName AS 'Nome',
+	LastName AS 'Sobrenome',
+	SUM(SalesQuantity) AS 'Qtde Vendida'
+FROM
+	FactOnlineSales
+INNER JOIN DimCustomer
+	ON FactOnlineSales.CustomerKey = DimCustomer.CustomerKey
+WHERE CustomerType = 'Person'
+GROUP BY DimCustomer.CustomerKey, FirstName, LastName
+ORDER BY SUM(SalesQuantity) DESC
