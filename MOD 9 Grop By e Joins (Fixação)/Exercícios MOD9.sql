@@ -120,5 +120,16 @@ HAVING Gender IS NOT NULL
 ORDER BY SUM(SalesQuantity) DESC
 
 
-SELECT TOP(10)* FROM FactOnlineSales
-SELECT TOP(10)* FROM DimCustomer
+--6
+SELECT
+	CurrencyDescription AS Moeda,
+	AVG(AverageRate) AS 'Taxa de Câmbio'
+FROM
+	DimCurrency
+INNER JOIN FactExchangeRate
+	ON FactExchangeRate.CurrencyKey = DimCurrency.CurrencyKey
+GROUP BY CurrencyDescription
+HAVING AVG(AverageRate) BETWEEN 10 AND 100
+
+SELECT * FROM FactExchangeRate
+SELECT * FROM DimCurrency
