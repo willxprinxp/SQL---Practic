@@ -104,3 +104,21 @@ INNER JOIN DimProduct
 WHERE CustomerKey = '7665'
 GROUP BY ProductName
 ORDER BY SUM(SalesQuantity) DESC
+
+
+--5
+
+SELECT
+	Gender AS Genero,
+	SUM(SalesQuantity) AS 'Qtde Vendida'
+FROM
+	FactOnlineSales
+INNER JOIN DimCustomer
+	ON FactOnlineSales.CustomerKey = DimCustomer.CustomerKey
+GROUP BY Gender
+HAVING Gender IS NOT NULL
+ORDER BY SUM(SalesQuantity) DESC
+
+
+SELECT TOP(10)* FROM FactOnlineSales
+SELECT TOP(10)* FROM DimCustomer
