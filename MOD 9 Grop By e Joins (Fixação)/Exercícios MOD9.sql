@@ -146,5 +146,16 @@ INNER JOIN FactStrategyPlan
 WHERE ScenarioName IN ('Actual', 'Budget')
 GROUP BY ScenarioName
 
+
+--8
+SELECT
+	CalendarYearLabel AS 'ANO',
+	SUM(Amount) AS 'Quantia'
+FROM
+	DimDate
+INNER JOIN FactStrategyPlan
+	ON FactStrategyPlan.Datekey = DimDate.Datekey
+GROUP BY CalendarYearLabel
+
 SELECT TOP(10)* FROM FactStrategyPlan 
-SELECT * FROM DimScenario
+SELECT * FROM DimDate
