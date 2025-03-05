@@ -133,3 +133,18 @@ HAVING AVG(AverageRate) BETWEEN 10 AND 100
 
 SELECT * FROM FactExchangeRate
 SELECT * FROM DimCurrency
+
+
+--7
+SELECT 
+	ScenarioName AS 'Cenário',
+	SUM(Amount) AS Quantia
+FROM
+	DimScenario
+INNER JOIN FactStrategyPlan
+	ON FactStrategyPlan.ScenarioKey = DimScenario.ScenarioKey
+WHERE ScenarioName IN ('Actual', 'Budget')
+GROUP BY ScenarioName
+
+SELECT TOP(10)* FROM FactStrategyPlan 
+SELECT * FROM DimScenario
