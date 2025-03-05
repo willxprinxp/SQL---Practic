@@ -157,5 +157,18 @@ INNER JOIN FactStrategyPlan
 	ON FactStrategyPlan.Datekey = DimDate.Datekey
 GROUP BY CalendarYearLabel
 
-SELECT TOP(10)* FROM FactStrategyPlan 
-SELECT * FROM DimDate
+
+--9
+SELECT
+	ProductSubcategoryName,
+	COUNT(ProductKey) AS Qtde
+FROM
+	DimProductSubcategory
+INNER JOIN DimProduct
+	ON DimProductSubcategory.ProductSubcategoryKey = DimProduct.ProductSubcategoryKey
+WHERE BrandName = 'Contoso' AND ColorName = 'Silver'
+GROUP BY ProductSubcategoryName
+ORDER BY COUNT(ProductKey)
+
+SELECT* FROM DimProduct
+SELECT* FROM DimProductSubcategory
