@@ -170,5 +170,18 @@ WHERE BrandName = 'Contoso' AND ColorName = 'Silver'
 GROUP BY ProductSubcategoryName
 ORDER BY COUNT(ProductKey)
 
+
+--10
+SELECT
+	BrandName AS 'Marca',
+	ProductSubcategoryName AS 'Subcategoria',
+	COUNT(*) AS Qtde
+FROM
+	DimProduct
+INNER JOIN DimProductSubcategory
+	ON DimProductSubcategory.ProductSubcategoryKey = DimProduct.ProductSubcategoryKey
+GROUP BY BrandName, ProductSubcategoryName 
+ORDER BY BrandName ASC
+
 SELECT* FROM DimProduct
 SELECT* FROM DimProductSubcategory
